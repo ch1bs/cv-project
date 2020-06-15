@@ -1,0 +1,72 @@
+<div class="login-page">
+  <mat-card class="mat-elevation-z12 mat-card-container">
+    <mat-card-title style="text-align:center;">Log In</mat-card-title>
+    <mat-card-content>
+      <div *ngIf="isLoading" style="text-align: center;">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+      <form class="mb-3"
+            [formGroup]="logInForm"
+            (ngSubmit)="onSubmitLogInForm()">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input type="email"
+                 id="email"
+                 class="form-control"
+                 formControlName="email"
+                 [ngClass]="{'is-invalid': !logInForm.get('email').valid && logInForm.get('email').dirty}"
+                 email
+                 required
+                 matInput
+          >
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error class="alert-danger"
+                     *ngIf="logInForm.get('email').hasError('required') && logInForm.get('email').dirty">
+            Email field is required!
+          </mat-error>
+          <mat-error class="alert-danger"
+                     *ngIf="logInForm.get('email').hasError('email') && logInForm.get('email').dirty">
+            Email is in wrong format!
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input [type]="hide ? 'password' : 'text'"
+                 id="password"
+                 class="form-control"
+                 formControlName="password"
+                 [ngClass]="{'is-invalid': !logInForm.get('password').valid && logInForm.get('password').dirty}"
+                 required
+                 matInput
+          >
+          <mat-icon matSuffix style="cursor: pointer"
+                    (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+          <mat-error class="alert-danger"
+               *ngIf="logInForm.get('password').hasError('required') && logInForm.get('password').dirty">
+            Password field is required!
+          </mat-error>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="login-button"
+          [disabled]="!logInForm.valid"
+        >Log In
+        </button>
+      </form>
+      <button
+        mat-raised-button
+        class="login-button"
+        (click)="logInWithOauth()"
+      >
+        Log in with Google
+      </button>
+      <mat-error class="text-center alert-danger" *ngIf="loginError !== ''">
+        {{loginError}}
+      </mat-error>
+    </mat-card-content>
+  </mat-card>
+</div>
+

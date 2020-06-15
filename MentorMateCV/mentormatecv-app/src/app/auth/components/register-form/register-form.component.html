@@ -1,0 +1,128 @@
+<div class="register-page">
+  <mat-card class="mat-elevation-z12 mat-card-container">
+    <mat-card-title style="text-align:center;">Register</mat-card-title>
+    <mat-card-content>
+      <div *ngIf="isLoading" style="text-align: center;">
+        <app-loading-spinner></app-loading-spinner>
+      </div>
+      <form class="mb-3"
+            [formGroup]="registerForm"
+            (ngSubmit)="onSubmitRegisterForm()"
+            [mustMatch]="['password', 'confirmPassword']">
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput
+                 type="email"
+                 id="register_email"
+                 class="form-control"
+                 formControlName="email"
+                 [ngClass]="{'is-invalid': !registerForm.get('email').valid && registerForm.get('email').dirty}"
+          >
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-error class="alert-danger"
+                     *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').dirty">
+            Email field is required!
+          </mat-error>
+          <mat-error class="alert-danger"
+                     *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').dirty">
+            Email is in wrong format!
+          </mat-error>
+
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input [type]="hide ? 'password' : 'text'"
+                 matInput
+                 pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                 id="register_password"
+                 class="form-control"
+                 formControlName="password"
+                 [ngClass]="{'is-invalid': !registerForm.get('password').valid && registerForm.get('password').dirty}"
+          >
+          <mat-icon matSuffix
+                    style="cursor: pointer"
+                    (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+          <mat-error class="alert-danger"
+                     *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').dirty"
+          >
+            Password field is required!
+          </mat-error>
+          <mat-error class="alert-danger"
+            *ngIf="registerForm.invalid"
+          >
+            Password must be at least 8 characters long and contain at least one number, one uppercase and one lowercase
+            letter!
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <input [type]="hide ? 'password' : 'text'"
+                 matInput
+                 id="register_confirmPassword"
+                 class="form-control"
+                 formControlName="confirmPassword"
+                 [ngClass]="{'is-invalid': !registerForm.get('confirmPassword').valid && registerForm.get('confirmPassword').dirty}"
+          >
+          <mat-icon matSuffix
+                    style="cursor: pointer"
+                    (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+          <mat-error class="alert-danger"
+                     *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').dirty">
+            Password field is required!
+          </mat-error>
+          <mat-error class="alert-danger"
+                     *ngIf="registerForm.invalid"
+                     >
+            Passwords must match!
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>First Name</mat-label>
+          <input type="text"
+                 matInput
+                 id="register_firstName"
+                 class="form-control"
+                 formControlName="firstName"
+                 [ngClass]="{'is-invalid': !registerForm.get('firstName').valid && registerForm.get('firstName').dirty}"
+          >
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error class="alert-danger"
+                     *ngIf="registerForm.get('firstName').hasError('required') &&
+                      registerForm.get('firstName').dirty">
+            First Name field is required!
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <label for="register_lastName">Last Name</label>
+          <input type="text"
+                 matInput
+                 id="register_lastName"
+                 class="form-control"
+                 formControlName="lastName"
+                 [ngClass]="{'is-invalid': !registerForm.get('lastName').valid && registerForm.get('lastName').dirty}"
+          >
+          <mat-icon matSuffix>account_circle</mat-icon>
+          <mat-error class="alert-danger"
+                     *ngIf="registerForm.get('lastName').hasError('required') && registerForm.get('lastName').dirty">
+            Last Name field is required!
+          </mat-error>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          class="register-button"
+          [disabled]="!registerForm.valid"
+        >
+          Register
+        </button>
+      </form>
+      <mat-error class="alert-danger" *ngIf="registerError !== ''">
+        {{registerError}}
+      </mat-error>
+    </mat-card-content>
+  </mat-card>
+</div>
+

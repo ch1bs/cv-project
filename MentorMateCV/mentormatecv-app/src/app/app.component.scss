@@ -1,0 +1,68 @@
+.navbar {
+  background: #4EAADD;
+}
+
+strong {
+  color: black;
+}
+
+.navbar-brand {
+  cursor: pointer;
+  color: whitesmoke;
+  opacity: 1;
+}
+
+.navbar-brand:hover {
+  opacity: 0.4;
+}
+
+
+button {
+  color: whitesmoke;
+  opacity: 1;
+}
+
+button:hover {
+  opacity: 0.4;
+}
+
+li {
+  list-style: none;
+}
+
+.welcome-text {
+  .welcome-text-logo{
+    margin-top: 18%;
+    margin-left: 10%;
+    font-size: 50px;
+    animation-name: appearFromUp;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+  }
+  .welcome-text-info{
+    margin-top: -2%;
+    font-size: 20px;
+  }
+  li {
+    color: black;
+  }
+  strong {
+    color: #4EAADD;
+  }
+}
+
+body {
+  background: lightgray;
+}
+
+@media only screen and (max-width: 425px) {
+  .navbar {
+    max-width: 425px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+

@@ -1,0 +1,109 @@
+<!--<div [formGroup]="workExperienceForm">-->
+<!--  <h2>Work Experience</h2>-->
+<!--  <div [formGroupName]="i"-->
+<!--       *ngFor="let experience of workExperienceForm.controls;let i=index"-->
+<!--  >-->
+<!--    <div>-->
+<!--      <div class="d-flex flex-row justify-content-around mediaQuery">-->
+<!--        <mat-form-field>-->
+<!--          <mat-label>Choose a start date</mat-label>-->
+<!--          <input required matInput [matDatepicker]="startDate" formControlName="startDate">-->
+<!--          <mat-error *ngIf="workExperienceForm.invalid">Field is required</mat-error>-->
+<!--          <mat-datepicker-toggle matSuffix [for]="startDate">-->
+<!--            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>-->
+<!--          </mat-datepicker-toggle>-->
+<!--          <mat-datepicker #startDate></mat-datepicker>-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field>-->
+<!--          <mat-label>Choose an end date</mat-label>-->
+<!--          <input required matInput [matDatepicker]="endDate" formControlName="endDate">-->
+<!--          <mat-error *ngIf="workExperienceForm.invalid">Field is required</mat-error>-->
+<!--          <mat-datepicker-toggle matSuffix [for]="endDate">-->
+<!--            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>-->
+<!--          </mat-datepicker-toggle>-->
+<!--          <mat-datepicker #endDate></mat-datepicker>-->
+<!--        </mat-form-field>-->
+<!--      </div>-->
+<!--      <div class="d-flex flex-column">-->
+<!--        <mat-form-field>-->
+<!--          <mat-label>Project</mat-label>-->
+<!--          <input required matInput formControlName="project">-->
+<!--          <mat-error *ngIf="workExperienceForm.invalid">Field is required</mat-error>-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field>-->
+<!--          <mat-label>Company</mat-label>-->
+<!--          <input required matInput formControlName="company">-->
+<!--          <mat-error *ngIf="workExperienceForm.invalid">Field is required</mat-error>-->
+<!--        </mat-form-field>-->
+<!--        <mat-form-field>-->
+<!--          <mat-label>Position</mat-label>-->
+<!--          <input required matInput formControlName="position">-->
+<!--          <mat-error *ngIf="workExperienceForm.invalid">Field is required</mat-error>-->
+<!--        </mat-form-field>-->
+<!--      </div>-->
+
+
+<!--&lt;!&ndash;      <div formArrayName="technologies">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div *ngFor="let technology of technologiesForm.controls; let j=index" [formGroupName]="j">&ndash;&gt;-->
+<!--&lt;!&ndash;        <mat-form-field class="skill-list">&ndash;&gt;-->
+<!--&lt;!&ndash;          <mat-label>Technologies Used</mat-label>&ndash;&gt;-->
+<!--&lt;!&ndash;          <input placeholder="Add skill..."&ndash;&gt;-->
+<!--&lt;!&ndash;                 [matChipInputFor]="technologiesList"&ndash;&gt;-->
+<!--&lt;!&ndash;                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"&ndash;&gt;-->
+<!--&lt;!&ndash;                 [matChipInputAddOnBlur]="addOnBlur"&ndash;&gt;-->
+<!--&lt;!&ndash;                 (matChipInputTokenEnd)="addTechnology($event)"&ndash;&gt;-->
+<!--&lt;!&ndash;                 class="form-control"&ndash;&gt;-->
+
+<!--&lt;!&ndash;          >&ndash;&gt;-->
+<!--&lt;!&ndash;          <mat-chip-list #technologiesList aria-label="Skill selection">&ndash;&gt;-->
+<!--&lt;!&ndash;            <mat-chip style="background: #4EAADD; color: whitesmoke"&ndash;&gt;-->
+<!--&lt;!&ndash;                      [selectable]="selectable"&ndash;&gt;-->
+<!--&lt;!&ndash;                      [removable]="removable" (removed)="removeTechnology(technology)"&ndash;&gt;-->
+<!--&lt;!&ndash;                      [value]="technology"&ndash;&gt;-->
+<!--&lt;!&ndash;                      *ngFor="let technology of technologies"&ndash;&gt;-->
+<!--&lt;!&ndash;            >&ndash;&gt;-->
+<!--&lt;!&ndash;              {{technology}}&ndash;&gt;-->
+<!--&lt;!&ndash;              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;            </mat-chip>&ndash;&gt;-->
+<!--&lt;!&ndash;          </mat-chip-list>&ndash;&gt;-->
+<!--&lt;!&ndash;        </mat-form-field>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
+
+
+<!--      &lt;!&ndash;      <mat-form-field>&ndash;&gt;-->
+<!--      &lt;!&ndash;        <mat-label>Technologies Used</mat-label>&ndash;&gt;-->
+<!--      &lt;!&ndash;        <input required matInput formControlName="technologies">&ndash;&gt;-->
+<!--      &lt;!&ndash;        <mat-error *ngIf="workExperienceForm.invalid">Field is required</mat-error>&ndash;&gt;-->
+<!--      &lt;!&ndash;      </mat-form-field>&ndash;&gt;-->
+
+<!--    </div>-->
+
+
+<!--    <mat-form-field *ngIf="editDescription">-->
+<!--      <mat-label>Description</mat-label>-->
+<!--      <div class="d-flex">-->
+<!--      <textarea matInput-->
+<!--                cdkTextareaAutosize-->
+<!--                class="w-auto scroll form-control textarea"-->
+<!--                id="description"-->
+<!--                formControlName="description"-->
+<!--      >-->
+<!--            {{text}}-->
+<!--      </textarea>-->
+<!--        <mat-icon>edit</mat-icon>-->
+<!--      </div>-->
+<!--    </mat-form-field>-->
+
+<!--    <mat-icon class=" cursor-pointer w-25 h-25"-->
+<!--              (click)="deleteWorkExperience(i)">-->
+<!--      close-->
+<!--    </mat-icon>-->
+<!--  </div>-->
+<!--  <hr>-->
+<!--</div>-->
+<!--<button-->
+<!--  mat-raised-button-->
+<!--  (click)="addWorkExperience()"-->
+<!--&gt;-->
+<!--  Add New Work Experience-->
+<!--</button>-->

@@ -1,0 +1,25 @@
+<nav class="navbar justify-content-between">
+  <a class="navbar-brand" (click)="redirectToHomePage()">EXCLU<strong>CV</strong></a>
+  <div class="navbar d-flex justify-content-end">
+    <button class="btn my-2 my-sm-0" *ngIf="isAuthenticated" (click)="redirectToMainInformationPage()">BRANDED CV
+    </button>
+    <button class="btn my-2 my-sm-0" *ngIf="isAuthenticated" ngbDropdown>
+      <i class="fa fa-bell" id="notifications" ngbDropdownToggle></i>
+      <div ngbDropdownMenu aria-labelledby="notifications">
+        <p ngbDropdownItem class="text-dark">Action - 1</p>
+        <p ngbDropdownItem>Another Action</p>
+        <p ngbDropdownItem>Something else is here</p>
+      </div>
+    </button>
+    <button class="btn my-2 my-sm-0" *ngIf="!isAuthenticated" (click)="redirectToLoginPage()">Login</button>
+    <button class="btn my-2 my-sm-0" *ngIf="isAuthenticated" (click)="logOut()">Log Out</button>
+    <button class="btn my-2 my-sm-0" *ngIf="isAuthenticated && user | async; let user" (click)="redirectToProfilePage()">Hello, {{user.displayName ? user.displayName : user.email}}</button>
+    <button class="btn my-2 my-sm-0" *ngIf="!isAuthenticated" (click)="redirectToRegisterPage()">Register</button>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+
+
+

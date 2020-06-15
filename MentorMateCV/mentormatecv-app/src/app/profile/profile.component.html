@@ -1,0 +1,14 @@
+<div class="container d-flex mt-3 justify-content-start">
+  <img class="user-avatar"  *ngIf="user | async; let user" [src]="user.photoURL">
+  <h1 class="ml-1 mt-5"
+      *ngIf="user | async; let user">
+    {{user.displayName ? user.displayName : user.email}}
+  </h1>
+</div>
+<div class="container d-flex justify-content-end">
+  <button class=" btn btn-outline-info">Save<i class="fa fa-floppy-o pl-5"></i></button>
+</div>
+
+
+
+

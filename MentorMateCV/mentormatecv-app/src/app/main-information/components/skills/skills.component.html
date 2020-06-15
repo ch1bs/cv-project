@@ -1,0 +1,45 @@
+<div [formGroup]="skillsForm">
+<h2>Skills</h2>
+<mat-form-field class="skill-list">
+  <mat-label>Core Skills</mat-label>
+  <input placeholder="Add skill..."
+         [matChipInputFor]="coreSkillList"
+         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+         [matChipInputAddOnBlur]="addOnBlur"
+         (matChipInputTokenEnd)="addCoreSkill($event)"
+         class="form-control"
+  >
+  <mat-chip-list #coreSkillList aria-label="Skill selection">
+    <mat-chip style="background: #4EAADD; color: whitesmoke"
+              [selectable]="selectable"
+              [removable]="removable" (removed)="removeCoreSkill(skill)"
+              [value]="skill"
+              *ngFor="let skill of coreSkills"
+    >
+      {{skill}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+</mat-form-field>
+<mat-form-field class="skill-list">
+  <mat-label>Additional Skills</mat-label>
+  <input placeholder="Add skill..."
+         [matChipInputFor]="additionalSkillList"
+         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+         [matChipInputAddOnBlur]="addOnBlur"
+         (matChipInputTokenEnd)="addAdditionalSkill($event)"
+         class="form-control"
+  >
+  <mat-chip-list #additionalSkillList aria-label="Skill selection">
+    <mat-chip style="background: #4EAADD; color: whitesmoke"
+              [selectable]="selectable"
+              [removable]="removable" (removed)="removeAdditionalSkill(skill)"
+              [value]="skill"
+              *ngFor="let skill of additionalSkills"
+    >
+      {{skill}}
+      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+  </mat-chip-list>
+</mat-form-field>
+</div>

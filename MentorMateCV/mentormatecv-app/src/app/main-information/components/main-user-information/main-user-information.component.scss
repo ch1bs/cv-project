@@ -1,0 +1,29 @@
+mat-form-field {
+  width: 80%;
+  display: block;
+  margin-right: 50px;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.form-control, .form-control:focus {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 890px)  {
+  .mediaQuery {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+}

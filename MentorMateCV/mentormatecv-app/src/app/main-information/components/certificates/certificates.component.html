@@ -1,0 +1,31 @@
+<div [formGroup]="certificatesForm">
+  <h2>Certificates</h2>
+  <div [formGroupName]="i"
+       *ngFor="let certificate of certificatesForm.controls;let i=index"
+       class="d-flex justify-content-between"
+  >
+      <div class="d-flex w-75 flex-column">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input required matInput formControlName="name">
+          <mat-error *ngIf="certificatesForm.invalid">Field is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input required matInput formControlName="description">
+          <mat-error *ngIf="certificatesForm.invalid">Field is required</mat-error>
+        </mat-form-field>
+      </div>
+      <mat-icon class=" cursor-pointer"
+                (click)="deleteCertificate(i)">
+        close
+      </mat-icon>
+    </div>
+    <hr>
+  <button
+    mat-raised-button
+    (click)="addCertificate()"
+  >
+    Add New Certificate
+  </button>
+</div>

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mentormate-cv": {
+      "hosting": {
+        "mentormatecv-app": [
+          "mentormate-cv"
+        ]
+      }
+    }
+  }
+}
